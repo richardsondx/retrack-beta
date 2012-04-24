@@ -1,0 +1,20 @@
+<div class="span12" id="innerform" align="center">
+	<h2>Edit Your Profile</h2><br />
+	<fieldset>
+		<legend></legend>
+			<%= simple_form_for @user, :html => {:novalidate => true, :class => 'form-horizontal'} do |f|%>
+				<%= f.input :name, :placeholder => 'ex: John Doe'%>
+				<%= f.input :email , :placeholder => 'ex: example@email.com'%>
+				<%= f.input :password %>
+				<%= f.input :password_confirmation %><br />
+				<div>
+				  <%= gravatar_for @user %>
+				  <a href="http://gravatar.com/emails">change</a>
+				</div>
+				<div class="form-actions">
+					<%= f.submit "Save", :class => 'btn btn-primary' %>
+				</div>
+			<% end %>
+			
+	</fieldset>
+</div>

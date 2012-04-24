@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: microposts
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  spotify    :string(255)
+#  itunes     :string(255)
+#  link       :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  spotify: MyString
+  itunes: MyString
+  link: MyString
+
+two:
+  name: MyString
+  spotify: MyString
+  itunes: MyString
+  link: MyString

@@ -1,0 +1,16 @@
+<%= form_for @micropost, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label "Post a track", :class => 'control-label' %>
+    <div class="controls">
+		<%= f.text_field :name, :class => 'text_field input-xlarge', :placeholder => "Your song title - Artists" %>
+		<%= f.submit "Share", :class => 'btn btn-primary' %>	
+    </div>
+  </div>
+  <div class="control-group">
+    <!-- <%= f.label :link, :class => 'control-label' %> -->
+    <div class="controls">
+      <%= f.text_field :link, :class => 'text_field', :placeholder => "Add a link (optional)" %>
+    </div>
+  </div>
+
+<% end %>

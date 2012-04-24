@@ -1,0 +1,11 @@
+<%= form_for @micropost do |f| %>
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+<div class="field">
+	<%= f.label "Link"%> <%= f.text_field :link_url, :placeholder => "(optional)" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

@@ -1,0 +1,57 @@
+<div class="span8">	
+	<!-- <div class="row-fluid" id="BannerBackground" align="center">
+			 <%= image_tag "banner_example.png"%>
+	</div> -->
+	<div class="page-header">
+		<h2>Share your favorite tracks</h2>
+	</div>
+	<div class="alert alert-info">
+		<div class="row-fluid" id="PostingSession">
+			<%= render 'form', :locals => { :micropost => @micropost } %>
+		</div>
+	</div>
+	<div class="row-fluid" id="AllPosts">
+		<div class="row">
+			<table class="table table-striped">
+			<% @microposts.each do |micropost| %>
+				<tr>
+						<div class="span6">
+							<td><%= link_to micropost.id, micropost_path(micropost) %></td>
+							<td><%= micropost.name %></td>
+							<td><%= time_ago_in_words(micropost.created_at) %> ago</td>
+						</div>
+						<div class="span6">
+							<!-- Add Regex to detect Artist part and Song part for Spotify-->
+							<td><%= micropost.spotify.blank? ? '--' : "spotify:search:track:#{micropost.spotify}" %></td>
+							<!-- Add Regex to detext Artist part and song part for Itunes-->
+						    <td><%= micropost.itunes.blank? ? '--' : "none", "http://itunes.com/album/song"""%></td>
+						    <td><%= link_to micropost.link.blank? ? 'none' : micropost.link%>, micropost.link</td>
+						</div>
+				</tr>
+	  		<% end %>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="span4">
+	<!-- <div class="hero-unit"> -->
+		<div class="profile-top">
+			<div class="profile-pic">
+				<img src="" width="50" height="50" />
+			</div>
+			<div class="profile-name">
+				<p>Username<p>
+				<p>Full Name</p>
+			</div>
+		</div>
+		<div class="profile-bottom">
+			<div class="profile-description">
+				<p>about: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec tellus et mi imperdiet tempor. Aliquam urna libero, bibendum sed volutpat.</p>
+			</div>
+			<div class="profile-website" align="center">
+				<input class="btn btn-mini" type="button" value="website">
+			</div>
+		</div>
+  	<!-- </div> -->
+</div>

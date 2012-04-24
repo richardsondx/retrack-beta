@@ -1,0 +1,41 @@
+<tr>
+  <td class="micropost">
+    <span class="content"><strong><%= micropost.name %></strong></span><br />
+	<span class="content">Open with:
+		<% if micropost.name.include? '#mixtape'%>
+			<% bad = "#mixtape"%>
+			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
+			<%= link_to( image_tag("Datpiff-Logo-2.png", :size => "20x20"), "http://www.datpiff.com/mixtapes-search.php?criteria=#{micropost.name}")%>
+		<% elsif micropost.name.include? '#spot'%>
+			<% bad = "#spot"%>
+			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
+			<%= link_to( image_tag("spotify_logo.png", :size => "20x20"), "spotify:search:#{micropost.name}")%>
+		<% elsif micropost.name.include? '#cloud'%>
+			<% bad = "#cloud"%>
+			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
+			<%= link_to( image_tag("soundcloud-logo.png", :size => "20x20"), "http://soundcloud.com/search?q%5Bfulltext%5D=#{micropost.name}")%>
+		<% elsif micropost.name.include? '#groove'%>
+			<% bad = "#groove"%>
+			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
+			<%= link_to( image_tag("Grooveshark_Logo.png", :size => "20x20"), "http://grooveshark.com/#!/search?q=#{micropost.name}")%>
+		<% elsif micropost.name.include? '#hulk'%>
+			<% bad = "#hulk"%>
+			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
+			<%= link_to( image_tag("hulkshare.gif", :size => "20x20"), "http://www.hulkshare.com/search.php?q=#{micropost.name}")%>
+		<% elsif %>
+			<%= link_to( image_tag("spotify_logo.png", :size => "20x20"), "spotify:search:{#{micropost.name}}")%>
+			<!-- <%= link_to( image_tag("itunes_logo.jpg", :size => "20x20"), "")%> -->
+			<%= link_to( image_tag("lastfm_logo.png", :size => "20x20"), "http://www.last.fm/search?q=#{micropost.name}&type=track")%>
+			<%= link_to( image_tag("soundcloud-logo.png", :size => "20x20"), "http://soundcloud.com/search?q%5Bfulltext%5D=#{micropost.name}")%>
+			<%= link_to( image_tag("Grooveshark_Logo.png", :size => "20x20"), "http://grooveshark.com/#!/search?q=#{micropost.name}")%>	
+	<% end %>
+	<% unless micropost.link_url.blank?%>
+	 <p>Link:<%= link_to micropost.link_url, micropost.link_url%></p>
+	<% else %>
+	<% end%>
+	</span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    </span>	
+  </td>
+</tr>

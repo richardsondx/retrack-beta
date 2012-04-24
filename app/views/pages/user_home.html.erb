@@ -1,0 +1,35 @@
+
+<table class="profile" summary="Profile information">
+	<tr>
+		<td class="main">
+			<%= link_to gravatar_for(current_user), current_user %>
+			  <table class="front" summary="For signed-in users">
+			    <tr>
+			      <td class="main">
+
+			      </td>
+			    </tr>
+			  </table>
+			
+			
+			<h3>Micropost Feed</h3>
+		 	<%= render 'shared/feed' %>
+		</td>
+		<td class="sidebar round">
+			<span>
+			<h2 class="picpic">
+				<%= gravatar_for current_user%>
+				<%= current_user.name %>
+			</h2>
+			</span>
+			<span>
+			<strong>Name</strong> <%= current_user.name %><br />
+			<strong>URL</strong> <%= link_to user_path(current_user), current_user%><br />
+			<strong>Email</strong> <%= current_user.email %>
+			<section>
+		        <%= render 'shared/stats' %>
+		      </section>
+			</span>
+		</td>
+	</tr>
+</table>

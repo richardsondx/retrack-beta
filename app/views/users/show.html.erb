@@ -1,0 +1,40 @@
+<table class="profile" summary="Profile information">
+	<tr>
+		<td class="main">
+			<% if signed_in? && current_user.name == @user.name%>
+			  <table class="front" summary="For signed-in users">
+			    <tr>
+			      <td class="main">
+			        <h1 class="micropost">Share a Track:</h1>
+			        <%= render 'shared/micropost_form' %>
+			      </td>
+			    </tr>
+			  </table>
+			<% end %>
+			
+			<% unless @user.microposts.empty?%>
+				<table class="microposts" summary="User microposts">
+					<%= render @microposts %>
+					</table>
+					<%= will_paginate @microposts%>
+			<% end %>
+		</td>
+		<td class="sidebar round">
+			<span>
+			<h2 class="picpic">
+				<%= gravatar_for @user%>
+				<%= @user.name %>
+			</h2>
+			</span>
+			<span>
+			<strong>Name</strong> <%= @user.name %><br />
+			<strong>URL</strong> <%= link_to user_path(@user), @user%><br />
+			<strong>Email</strong> <%= @user.email %>
+			<section>
+		        <%= render 'shared/stats' %>
+				<%= render 'follow_form' if signed_in? %>
+		      </section>
+			</span>
+		</td>
+	</tr>
+</table>

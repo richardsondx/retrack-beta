@@ -1,0 +1,15 @@
+<div class="span12" id="innerform" align="center">
+	<h2>Sign up</h2><br />
+	<fieldset>
+		<legend></legend>
+			<%= simple_form_for @user, :html => {:novalidate => true, :class => 'form-horizontal'} do |f|%>
+				<%= f.input :name, :placeholder => 'ex: John Doe'%>
+				<%= f.input :email , :placeholder => 'ex: example@email.com'%>
+				<%= f.input :password %>
+				<%= f.input :password_confirmation %><br />
+				<div class="form-actions">
+					<%= f.submit "Sign Up", :class => 'btn btn-primary' %>
+				</div>
+			<% end %>
+	</fieldset>
+</div>
