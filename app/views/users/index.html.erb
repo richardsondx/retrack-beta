@@ -1,17 +1,21 @@
 <h1 align="center">All users</h1><br />
-<div class="apple_pagination">
-<%= will_paginate @users, :container => false %>
+<div style="display: block; margin: 0 auto; width: 100%;">
+<div class="row-fluid" style="margin: 0 auto;">
+	<div class="apple_pagination" style="margin: 0 auto;">
+	<%= will_paginate @users, :container => false %>
+	</div>
+	<div style="background: grey ; margin: 0 auto; width: 60%;">
+	
+			<ul class="users" style="width: 400px; background: white;" >
+				<% @users.each do |user| %>
+					<li style="border-bottom: 1px solid black; margin: 0 auto;">
+						<%= render user %><br />
+					</li>
+				<% end %>
+			</ul>
+	</div>
+	<div class="apple_pagination" style="margin: 0 auto;">
+	<%= will_paginate @users, :container => false %>
+	</div>
 </div>
-<div class="span12" id="innerbox">
-
-		<ul class="users">
-			<% @users.each do |user| %>
-				<li>
-					<%= render user %>
-				</li>
-			<% end %>
-		</ul>
-</div>
-<div class="apple_pagination">
-<%= will_paginate @users, :container => false %>
 </div>

@@ -1,3 +1,4 @@
+<div  style="margin: 0 auto; width: 960px;">
 <table class="profile" summary="Profile information">
 	<tr>
 		<td class="main">
@@ -5,6 +6,7 @@
 			  <table class="front" summary="For signed-in users">
 			    <tr>
 			      <td class="main">
+					<h3>Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Your posts and retracks.</h3><br/<br/>
 			        <h1 class="micropost">Share a Track:</h1>
 			        <%= render 'shared/micropost_form' %>
 			      </td>
@@ -15,11 +17,15 @@
 			<% unless @user.microposts.empty?%>
 				<table class="microposts" summary="User microposts">
 					<%= render @microposts %>
-					</table>
-					<%= will_paginate @microposts%>
+				</table>
+					<div class="apple_pagination" style="margin: 0 auto; width:100%;">
+					<%= will_paginate @microposts, :container => false%>
+					</div>
 			<% end %>
 		</td>
-		<td class="sidebar round">
+		
+		<td style="background: orange; vertical-align: top; padding: 10px;margin: 0 auto;">
+			<ol style="background: white; padding-left: 10px;padding-top: 20px;margin: 0 auto; padding-bottom: 10px;">
 			<span>
 			<h2 class="picpic">
 				<%= gravatar_for @user%>
@@ -27,6 +33,7 @@
 			</h2>
 			</span>
 			<span>
+			
 			<strong>Name</strong> <%= @user.name %><br />
 			<strong>URL</strong> <%= link_to user_path(@user), @user%><br />
 			<strong>Email</strong> <%= @user.email %>
@@ -34,7 +41,10 @@
 		        <%= render 'shared/stats' %>
 				<%= render 'follow_form' if signed_in? %>
 		      </section>
+				
 			</span>
+				</ol>
 		</td>
 	</tr>
 </table>
+</div>

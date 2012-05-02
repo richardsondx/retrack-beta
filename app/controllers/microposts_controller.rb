@@ -45,7 +45,6 @@ class MicropostsController < ApplicationController
   # POST /microposts.json
   def create
     @micropost  = current_user.microposts.build(params[:micropost])
-    @micropost = Micropost.new(params[:micropost])
     respond_to do |format|
       @micropost  = current_user.microposts.build(params[:micropost])
       if @micropost.save
@@ -86,7 +85,13 @@ class MicropostsController < ApplicationController
     #       format.json { head :no_content }
     #     end
   end
-end
+  
+  def retweet
+      micropost = Micropost.find(params[:id])
+      retweet = micropost.retweet_by(current_user)
+      redirect_to current_user
+  end
+ 
 
 private
 
@@ -94,3 +99,4 @@ private
     @micropost = current_user.microposts.find_by_id(params[:id])
     redirect_to root_path if @micropost.nil?
   end
+end

@@ -9,22 +9,22 @@ Retrack::Application.routes.draw do
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
   
+  resources :microposts do
+    member do
+      post :retweet
+    end
+  end
 
+  # match '/retweet/:id' => 'microposts#retweet', :as => 'retweet'
   match '/profile', :to => 'pages#user_home'
-
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  
 
   get "pages/user_home"
-
   get "pages/home"
-
   get "pages/contact"
-  
   get "pages/about"
-
   get "pages/main"
 
   

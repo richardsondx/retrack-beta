@@ -1,21 +1,25 @@
-
 <table class="profile" summary="Profile information">
 	<tr>
 		<td class="main">
-			<%= link_to gravatar_for(current_user), current_user %>
+
 			  <table class="front" summary="For signed-in users">
 			    <tr>
 			      <td class="main">
-
+					<div id="span8">
+					<h3>Feed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Posts from all the users you follow.</h3>
+				 	<%= render 'shared/feed' %>
+					</div>
 			      </td>
 			    </tr>
 			  </table>
+			  <div class="apple_pagination" style="margin: 0 auto; width:100%;">
+			  <%= will_paginate @feed_items, :container => false %>
+			  <div>
 			
-			
-			<h3>Micropost Feed</h3>
-		 	<%= render 'shared/feed' %>
+
 		</td>
-		<td class="sidebar round">
+		<td style="background: orange; vertical-align: top; padding: 10px;">
+			<ol style="background: white; padding-left: 10px;padding-top: 20px;margin: 0 auto; padding-bottom: 10px;">
 			<span>
 			<h2 class="picpic">
 				<%= gravatar_for current_user%>
@@ -23,6 +27,7 @@
 			</h2>
 			</span>
 			<span>
+				
 			<strong>Name</strong> <%= current_user.name %><br />
 			<strong>URL</strong> <%= link_to user_path(current_user), current_user%><br />
 			<strong>Email</strong> <%= current_user.email %>
@@ -30,6 +35,7 @@
 		        <%= render 'shared/stats' %>
 		      </section>
 			</span>
+			</ol>
 		</td>
 	</tr>
 </table>
