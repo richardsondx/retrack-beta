@@ -25,7 +25,7 @@
 		<% if feed_item.name.include? '#mixtape'%>
 			<% bad = "#mixtape"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
-			<%= link_to( image_tag("Datpiff-Logo-2.png", :size => "20x20"), "http://www.datpiff.com/mixtapes-search.php?criteria=#{micropost.name}")%>
+			<%= link_to( image_tag("Datpiff-Logo-2.png", :size => "20x20"), "http://www.datpiff.com/mixtapes-search.php?criteria=#{feed_item.name}")%>
 		<% elsif feed_item.name.include? '#spot'%>
 			<% bad = "#spot"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
