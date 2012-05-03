@@ -6,28 +6,37 @@
 			<% bad = "#mixtape"%>
 			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("Datpiff-Logo-2.png", :size => "20x20"), "http://www.datpiff.com/mixtapes-search.php?criteria=#{micropost.name}")%>
-		<% elsif micropost.name.include? '#spot'%>
+		<% elsif micropost.name.include? '#spotify'%>
 			<% bad = "#spot"%>
 			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("spotify_logo.png", :size => "20x20"), "spotify:search:#{micropost.name}")%>
-		<% elsif micropost.name.include? '#cloud'%>
+		<% elsif micropost.name.include? '#soundcloud'%>
 			<% bad = "#cloud"%>
 			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("soundcloud-logo.png", :size => "20x20"), "http://soundcloud.com/search?q%5Bfulltext%5D=#{micropost.name}")%>
-		<% elsif micropost.name.include? '#groove'%>
+		<% elsif micropost.name.include? '#grooveshark'%>
 			<% bad = "#groove"%>
 			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("Grooveshark_Logo.png", :size => "20x20"), "http://grooveshark.com/#!/search?q=#{micropost.name}")%>
-		<% elsif micropost.name.include? '#hulk'%>
+			
+		<% elsif micropost.name.include? '#hulkshare'%>
 			<% bad = "#hulk"%>
 			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("hulkshare.gif", :size => "20x20"), "http://www.hulkshare.com/search.php?q=#{micropost.name}")%>
+		
+		<% elsif micropost.name.include? '#youtube'%>
+			<% bad = "#hulk"%>
+			<% micropost.name = (micropost.name.split(' ') - bad.split(' ')).join(' ') %>
+			<%= link_to( image_tag("youtube.jpg", :size => "20x20"), "http://www.youtube.com/results?search_query=#{micropost.name}")%>
 		<% elsif %>
+		
 			<%= link_to( image_tag("spotify_logo.png", :size => "20x20"), "spotify:search:{#{micropost.name}}")%>
 			<!-- <%= link_to( image_tag("itunes_logo.jpg", :size => "20x20"), "")%> -->
 			<%= link_to( image_tag("lastfm_logo.png", :size => "20x20"), "http://www.last.fm/search?q=#{micropost.name}&type=track")%>
 			<%= link_to( image_tag("soundcloud-logo.png", :size => "20x20"), "http://soundcloud.com/search?q%5Bfulltext%5D=#{micropost.name}")%>
 			<%= link_to( image_tag("Grooveshark_Logo.png", :size => "20x20"), "http://grooveshark.com/#!/search?q=#{micropost.name}")%>	
+			<%= link_to( image_tag("youtube.jpg", :size => "20x20"), "http://www.youtube.com/results?search_query=#{micropost.name}")%>
+			
 	<% end %>
 	<% unless micropost.link_url.blank?%>
 	 <p>Link:<%= link_to micropost.link_url, micropost.link_url%></p>

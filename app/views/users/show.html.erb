@@ -27,7 +27,7 @@
 		<td style="background: orange; vertical-align: top; padding: 10px;margin: 0 auto;">
 			<ol style="background: white; padding-left: 10px;padding-top: 20px;margin: 0 auto; padding-bottom: 10px;">
 			<span>
-			<h2 class="picpic">
+			<h2 class="picpic" style="font-size: 18px;">
 				<%= gravatar_for @user%>
 				<%= @user.name %>
 			</h2>
@@ -38,7 +38,8 @@
 			<strong>URL</strong> <%= link_to user_path(@user), @user%><br />
 			<strong>Email</strong> <%= @user.email %>
 			<section>
-		        <%= render 'shared/stats' %>
+				<br/>
+		        <%= render 'shared/stats' %><br/>
 				<%= render 'follow_form' if signed_in? %>
 		      </section>
 				
