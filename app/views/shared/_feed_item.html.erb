@@ -26,27 +26,29 @@
 			<% bad = "#mixtape"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("Datpiff-Logo-2.png", :size => "20x20"), "http://www.datpiff.com/mixtapes-search.php?criteria=#{feed_item.name}")%>
-		<% elsif feed_item.name.include? '#spot'%>
-			<% bad = "#spot"%>
+		<% elsif feed_item.name.include? '#spotify'%>
+			<% bad = "#spotify"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("spotify_logo.png", :size => "20x20"), "spotify:search:#{feed_item.name}")%>
-		<% elsif feed_item.name.include? '#cloud'%>
-			<% bad = "#cloud"%>
+		<% elsif feed_item.name.include? '#soundcloud'%>
+			<% bad = "#soundcloud"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("soundcloud-logo.png", :size => "20x20"), "http://soundcloud.com/search?q%5Bfulltext%5D=#{feed_item.name}")%>
-		<% elsif feed_item.name.include? '#groove'%>
-			<% bad = "#groove"%>
+		<% elsif feed_item.name.include? '#grooveshark'%>
+			<% bad = "#grooveshark"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("Grooveshark_Logo.png", :size => "20x20"), "http://grooveshark.com/#!/search?q=#{feed_item.name}")%>
-		<% elsif feed_item.name.include? '#hulk'%>
-			<% bad = "#hulk"%>
+		<% elsif feed_item.name.include? '#hulkshare'%>
+			<% bad = "#hulkshare"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("hulkshare.gif", :size => "20x20"), "http://www.hulkshare.com/search.php?q=#{feed_item.name}")%>
 		<% elsif feed_item.name.include? '#youtube'%>
-			<% bad = "#hulk"%>
+			<% bad = "#youtube"%>
 			<% feed_item.name = (feed_item.name.split(' ') - bad.split(' ')).join(' ') %>
 			<%= link_to( image_tag("youtube.jpg", :size => "20x20"), "http://www.youtube.com/results?search_query=#{feed_item.name}")%>
-		<% elsif %>
+
+	   <% elsif%>
+	
 			<%= link_to( image_tag("spotify_logo.png", :size => "20x20"), "spotify:search:{#{feed_item.name}}")%>
 			<!-- <%= link_to( image_tag("itunes_logo.jpg", :size => "20x20"), "")%> -->
 			<%= link_to( image_tag("lastfm_logo.png", :size => "20x20"), "http://www.last.fm/search?q=#{feed_item.name}&type=track")%>
