@@ -5,10 +5,14 @@
 	  </span>
 	  <h2>Love, Share and Retrack</h2>
 	  <p>Retrack is currently in beta</p>
+	<% if signed_in? %>
+		<%= link_to "Go back to my profile", current_user,  :class=>"btn btn-primary btn-large" %>
+	<% else %>
 	  <p>
 		<%= link_to "Log in", signin_path,  :class=>"btn btn-primary btn-large" %>
-	    <!-- <%= link_to "Sign Up", new_user_path, :class => "btn btn-primary btn-large" %> -->
+	    <%= link_to "Sign Up", new_user_path, :class => "btn btn-primary btn-large" %>
 	  </p><br/>
+	<% end %>
 	</div>
 	
 		 
