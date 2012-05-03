@@ -1,6 +1,7 @@
 <tr>
   <td class="micropost">
-    <span class="content"><strong><%= micropost.name %></strong></span><br />
+    <span class="content">
+	<strong><%= micropost.name %></strong></span><br />
 	<span class="content">Open with:
 		<% if micropost.name.include? '#mixtape'%>
 			<% bad = "#mixtape"%>
@@ -47,14 +48,19 @@
 	<% else %>
 	<% end%>
 	
-	<% unless micropost.user == current_user %>
-	<%= link_to "Retrack ", retweet_micropost_path(micropost), :method => :post %>
-	<% end %>
+
 	
 	</span>
     <span class="timestamp">
       Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-    </span>	
+	<span style="float: right; font-size: 13px;">
+	<% unless micropost.user == current_user %>
+	<strong><%= link_to " Retrack", retweet_micropost_path(micropost), :method => :post, :style => "color: green;" %></strong>
+	<%= link_to image_tag("retrack-action.png", :size => "20x20"), retweet_micropost_path(micropost), :method => :post %>
+	<% end %>
+    </span>
+	</span
+
 	
   </td>
 </tr>
